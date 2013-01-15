@@ -2,7 +2,7 @@ package com.twu.refactor;
 
 public class Rental {
 
-    private Movie movie;
+    Movie movie;
 
     private int daysRented;
 
@@ -15,7 +15,15 @@ public class Rental {
         return daysRented;
     }
 
-    public Movie getMovie() {
-        return movie;
+    double getRentalPrice() {
+        return movie.getMoviePrice(daysRented);
+    }
+
+    int getRentalFrequency() {
+        return movie.rentalPoints(daysRented) + 1;
+    }
+
+    String rentalInfo(double thisAmount) {
+        return movie.info(thisAmount);
     }
 }
