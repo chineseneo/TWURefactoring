@@ -8,10 +8,9 @@ public class Movie {
 	private String title;
 	private int priceCode;
 
-    private double[] basePrice = {2.0, 0.0, 1.5};
     private int[] baseDays = {2, 0, 3};
+    private double[] basePrice = {2.0, 0.0, 1.5};
     private double[] unitPrice = {1.5, 3.0, 1.5};
-
 
 	public Movie(String title, int priceCode) {
 		this.title = title;
@@ -23,9 +22,9 @@ public class Movie {
 	}
 
     double getMoviePrice(int daysRented) {
-        double rentalPrice = basePrice[priceCode];
-        if (daysRented > baseDays[priceCode]) {
-            rentalPrice += (daysRented - baseDays[priceCode]) * unitPrice[priceCode];
+        double rentalPrice = MovieType.getBasePrice(basePrice, priceCode);
+        if (daysRented > MovieType.getBaseDay(baseDays, priceCode)) {
+            rentalPrice += (daysRented - MovieType.getBaseDay(baseDays, priceCode)) * MovieType.getUnitPrice(priceCode, unitPrice);
         }
         return rentalPrice;
     }
