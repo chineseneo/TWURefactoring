@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 public class CustomerTest {
 
-	private static final String GOLD_PATH = "test/data";
+	private static final String GOLD_PATH = "/Users/twer/learn/TWURefactoring/video-rental/test/data";
 
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
 
