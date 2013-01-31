@@ -1,17 +1,25 @@
 package com.twu.refactor;
 
-public enum MovieType {
-    regular(0, 2, 2, 1.5),
-    new_release(1, 0, 0, 3),
-    children(2, 3, 1.5, 1.5);
+import java.util.HashMap;
 
-    private final int typeCode;
+public enum MovieType {
+    regular(2, 2, 1.5),
+    new_release(0, 0, 3),
+    children(3, 1.5, 1.5);
+
     private final int baseDays;
     private final double basePrice;
     private final double unitPrice;
 
-    private MovieType(int typeCode, int baseDays, double basePrice, double unitPrice) {
-        this.typeCode = typeCode;
+    private static HashMap<Integer, MovieType> map = new HashMap<Integer, MovieType>();
+
+    static {
+        map.put(0, MovieType.regular);
+        map.put(1, MovieType.new_release);
+        map.put(2, MovieType.children);
+    }
+
+    private MovieType(int baseDays, double basePrice, double unitPrice) {
         this.baseDays = baseDays;
         this.basePrice = basePrice;
         this.unitPrice = unitPrice;
