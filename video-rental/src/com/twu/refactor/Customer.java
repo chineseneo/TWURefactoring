@@ -33,8 +33,10 @@ public class Customer {
 	}
 
     private String getResultString(double totalAmount, int frequentRenterPoints) {
-        String result = String.format("Amount owed is %.1f\n", totalAmount);
-        result += String.format("You earned %d frequent renter points", frequentRenterPoints);
+        String result = String.format("Amount owed is %.1f\n" +
+                "You earned %d frequent renter points",
+                totalAmount,
+                frequentRenterPoints);
         return result;
     }
 
